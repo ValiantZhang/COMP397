@@ -1,31 +1,24 @@
-    class Person {
-        protected _name : string;
+    var canvas : HTMLElement;
+    var stage : createjs.Stage;
+    
+    function init(){
+        canvas = document.getElementById("canvas");
         
-        constructor(name:string){
-            this._name = name;
-        }
+        stage = new createjs.Stage();
         
-        public speak() : void {
-            console.log(this._name = "I have the best walls");
-        }
+        stage.enableMouseOver(30);
+        
+        createjs.Ticker.setFPS(60);
+        
+        createjs.Ticker.on("tick", gameLoop, this);
     }
     
-    class Student extends Person {
-        private _studentNum : number;
+    function gameLoop(event : createjs.TickerEvent) : void{
+        var meNewText : createjs.Text = new createjs.Text("arrgh", "30pt Consolas", "0x000000");
         
-        constructor(name : string, studentNum: number){
-        super(name);
-        this._studentNum = studentNum;
-        }
+        stage.addChild(meNewText);
         
-        public studies(){
-            console.log(this._name + " is studying")
-        }
+        stage.update();
     }
     
-    var person : Person =  new Person("Trump");
-    person.speak();
-    
-    var student : Person = new Student("Melanie, 696969");
-    student.speak();
-    student.studies();
+    init();

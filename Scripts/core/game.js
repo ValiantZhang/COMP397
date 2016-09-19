@@ -1,31 +1,16 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var Person = (function () {
-    function Person(name) {
-        this._name = name;
-    }
-    Person.prototype.speak = function () {
-        console.log(this._name = "I have the best walls");
-    };
-    return Person;
-}());
-var Student = (function (_super) {
-    __extends(Student, _super);
-    function Student(name, studentNum) {
-        _super.call(this, name);
-        this._studentNum = studentNum;
-    }
-    Student.prototype.studies = function () {
-        console.log(this._name + " is studying");
-    };
-    return Student;
-}(Person));
-var person = new Person("Trump");
-person.speak();
-var student = new Student("Melanie, 696969");
-student.speak();
-student.studies();
+var canvas;
+var stage;
+function init() {
+    canvas = document.getElementById("canvas");
+    stage = new createjs.Stage();
+    stage.enableMouseOver(30);
+    createjs.Ticker.setFPS(60);
+    createjs.Ticker.on("tick", gameLoop, this);
+}
+function gameLoop(event) {
+    var meNewText = new createjs.Text("arrgh", "30pt Consolas", "0x000000");
+    stage.addChild(meNewText);
+    stage.update();
+}
+init();
 //# sourceMappingURL=game.js.map

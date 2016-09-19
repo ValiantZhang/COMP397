@@ -8,6 +8,8 @@
     "exclude":[
         "scripts/lib",
         "node_modules",
-        ".c9"
+        ".c9",
+        "node_modules/typings",
+        "node_modules/typings-core"
     ]
 }
